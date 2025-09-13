@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FHE Ticket Privacy Design System - Vintage Ticket Aesthetic with Crypto Elements */
+
+@layer base {
+  :root {
+    /* Paper ticket background */
+    --background: 42 15% 97%;
+    --foreground: 240 15% 15%;
+
+    /* Ticket card colors */
+    --card: 42 20% 96%;
+    --card-foreground: 240 15% 15%;
+
+    /* Popover styling */
+    --popover: 42 20% 96%;
+    --popover-foreground: 240 15% 15%;
+
+    /* Crypto purple primary */
+    --primary: 255 70% 25%;
+    --primary-foreground: 42 15% 97%;
+
+    /* Golden accent for premium tickets */
+    --secondary: 45 90% 55%;
+    --secondary-foreground: 240 15% 15%;
+
+    /* Muted paper tones */
+    --muted: 42 10% 92%;
+    --muted-foreground: 240 10% 50%;
+
+    /* Accent crypto blue */
+    --accent: 220 70% 35%;
+    --accent-foreground: 42 15% 97%;
+
+    /* Error states */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 42 15% 97%;
+
+    /* Borders and inputs */
+    --border: 42 15% 85%;
+    --input: 42 15% 90%;
+    --ring: 255 70% 25%;
+
+    --radius: 0.5rem;
+
+    /* Custom ticket design elements */
+    --ticket-perforation: repeating-linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 5px,
+      hsl(var(--border)) 5px,
+      hsl(var(--border)) 10px
+    );
+    
+    --ticket-shadow: 0 4px 6px -1px hsl(var(--primary) / 0.1), 
+                     0 2px 4px -1px hsl(var(--primary) / 0.06);
+    
+    --premium-gradient: linear-gradient(135deg, 
+                        hsl(var(--secondary)) 0%, 
+                        hsl(45 70% 45%) 100%);
+    
+    --crypto-gradient: linear-gradient(135deg, 
+                       hsl(var(--primary)) 0%, 
+                       hsl(var(--accent)) 100%);
+    
+    --paper-texture: linear-gradient(180deg, 
+                     hsl(var(--card)) 0%, 
+                     hsl(42 25% 94%) 100%);
+
+    /* Sidebar styling remains the same */
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+  }
+}
+
+@layer components {
+  .ticket-stub {
+    @apply relative bg-gradient-to-b from-card to-card/80 shadow-[var(--ticket-shadow)] rounded-lg;
+  }
+  
+  .ticket-perforation {
+    @apply before:absolute before:left-0 before:top-0 before:w-full before:h-1 before:bg-[var(--ticket-perforation)];
+  }
+  
+  .crypto-gradient {
+    background: var(--crypto-gradient);
+  }
+  
+  .premium-gradient {
+    background: var(--premium-gradient);
+  }
+  
+  .paper-texture {
+    background: var(--paper-texture);
+  }
+}
